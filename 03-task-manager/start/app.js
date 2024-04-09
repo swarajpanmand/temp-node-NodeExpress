@@ -6,12 +6,10 @@ const tasks = require('./route/tasks')
 require('dotenv').config()
 
 //middleware
+app.use(express.static('./public'))
 app.use(express.json())
 
 //routes
-app.get('/hello',(req,res)=>{
-    res.send('Task Manager')
-})
 app.use('/api/v1/tasks', tasks)
 
 
