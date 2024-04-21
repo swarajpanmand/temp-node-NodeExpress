@@ -1,7 +1,6 @@
 
 const {BadRequestError} = require('../errors')
 const jwt = require('jsonwebtoken')
-require('dotenv').config();
 
 const login = async (req,res) =>{
     const {username, password} =req.body
@@ -11,7 +10,7 @@ const login = async (req,res) =>{
     }
 
     //just for the demo , normally provided by DB
-    const id = new Date().getDate
+    const id = new Date().getDate()
  
     const token = jwt.sign({ id, username }, process.env.JWT_SECRET, {
         expiresIn: '30d',
@@ -30,5 +29,5 @@ const dashboard = async (req,res)=> {
 
 module.exports = {
     login,
-    dashboard
+    dashboard,
 }
